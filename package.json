@@ -1,0 +1,33 @@
+{
+  "name": "sgv-tpl-vite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsc --noEmit && vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "element-ui": "^2.15.1",
+    "reflect-metadata": "^0.1.13",
+    "vite": "^2.0.4",
+    "vue": "^2.6.12",
+    "vue-class-component": "^7.2.6",
+    "vue-property-decorator": "^9.1.2",
+    "vue-router": "^3.5.1",
+    "vuex": "^3.6.2"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^8.2.0",
+    "@types/node": "^14.14.31",
+    "sass": "^1.32.8",
+    "vite-plugin-vue2": "^1.2.1",
+    "vue-template-compiler": "^2.6.12"
+  }
+}

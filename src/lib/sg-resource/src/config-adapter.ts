@@ -1,4 +1,4 @@
-import { Method } from "../../axios/axios";
+import { Method } from "../axios/axios";
 
 export class Site implements ISite {
   remotes: Record<string, string> = {};

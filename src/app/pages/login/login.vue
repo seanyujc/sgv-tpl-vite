@@ -20,9 +20,9 @@
         </li>
       </ul>
     </el-form>
-    <el-dialog title="请选择您的身份类型" :visible.sync="dialogSignupVisible">
+    <el-dialog title="注册新账号" :visible.sync="dialogSignupVisible">
       <div slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="confirmRole">确定</el-button>
+        <el-button type="primary" @click="confirmSignup">确定</el-button>
       </div>
     </el-dialog>
   </div>
@@ -48,6 +48,7 @@ $color: #333;
   border-radius: 3px;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   h3 {
+    font-size: 30px;
     text-align: center;
   }
 }
@@ -96,7 +97,7 @@ $color: #333;
   height: 100%;
   body {
     height: 100%;
-    background: url(../../styles/images/bg.png) no-repeat;
+    background: url(/src/app/styles/images/bg.png) no-repeat;
     background-size: cover;
   }
 }

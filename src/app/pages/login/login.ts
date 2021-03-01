@@ -55,11 +55,8 @@ export default class LoginPage extends mixins(ComBaseComp)
   signup() {
     this.dialogSignupVisible = true;
   }
-  confirmRole() {
-    this.$router.push({
-      name: "signup",
-      params: { role: this.role.toString() },
-    });
+  confirmSignup() {
+    this.dialogSignupVisible = false;
   }
 
   fetchData() {

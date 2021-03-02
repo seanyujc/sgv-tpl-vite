@@ -1,5 +1,5 @@
 import { mixins } from "vue-class-component";
-import BasePage from "@/app/pages/BasePage";
+import { BaseComp } from "@/app/components/BaseComp";
 import {
   Component,
   Emit,
@@ -13,14 +13,9 @@ import {
 
 @Component({
   components: {},
-  name: "home",
+  name: "top",
 })
-export default class HomePage extends mixins(BasePage) {
-  title: string = "Home";
-
-  fetchData() {
-    // todo
-  }
+export default class TopComp extends mixins(BaseComp) {
   /* Lifecycle Hooks */
   mounted() {
     //

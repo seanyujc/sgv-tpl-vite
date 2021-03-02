@@ -6,17 +6,18 @@ import { HEADER_TOKEN } from "../core/constants";
 
 @Component({})
 export default class BasePage extends ComBaseComp {
-  /* 生命钩子 START */
+  /* Lifecycle Hooks */
   beforeRouteEnter(to: Route, from: Route, next: any) {
     const headerToken = localStorage.getItem(HEADER_TOKEN);
     next((vm: Vue) => {
-      // 验证登录
+      // Check Login Status
       if (!headerToken) {
-        vm.$router.replace({
-          name: "loginReturn",
-          params: { return: encodeURIComponent(to.fullPath) },
-        });
+        // vm.$router.replace({
+        //   name: "loginReturn",
+        //   params: { return: encodeURIComponent(to.fullPath) },
+        // });
       }
     });
   }
+  /* Lifecycle Hooks END*/
 }

@@ -3,10 +3,17 @@
     <el-form ref="loginForm" class="login-form" :rules="rules" :model="form">
       <h3>欢迎登录</h3>
       <el-form-item prop="userName">
-        <el-input v-model="form.userName" placeholder="请输入您的用户名/手机/邮箱"></el-input>
+        <el-input
+          v-model="form.userName"
+          placeholder="请输入您的用户名/手机/邮箱"
+        ></el-input>
       </el-form-item>
       <el-form-item prop="password">
-        <el-input type="password" v-model="form.password" placeholder="请输入您的密码"></el-input>
+        <el-input
+          type="password"
+          v-model="form.password"
+          placeholder="请输入您的密码"
+        ></el-input>
       </el-form-item>
       <el-form-item class="long-form-item">
         <el-button type="primary" @click="submitForm()">登录</el-button>
@@ -58,7 +65,7 @@ $color: #333;
     float: left;
   }
 }
-// 注册类型选择
+// 注册
 .el-dialog__wrapper ::v-deep(.el-dialog__header) {
   text-align: center;
 }
@@ -76,7 +83,7 @@ $color: #333;
   margin-left: 0px;
   margin: 10px 0;
 }
-.el-radio ::v-deep(.el-radio__input ){
+.el-radio ::v-deep(.el-radio__input) {
   display: none;
 }
 .el-radio.is-checked ::v-deep(.el-radio__label) {
@@ -85,7 +92,7 @@ $color: #333;
 .full-card {
   flex: 1;
 }
-.el-card ::v-deep( .el-card__header) {
+.el-card ::v-deep(.el-card__header) {
   text-align: center;
 }
 .dialog-footer {

@@ -13,8 +13,8 @@ $--color-transition-base: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) !defau
 
 /* Colors
 -------------------------- */
-$--color-white: #fff !default;
-$--color-black: #000 !default;
+$--color-white: #ffffff !default;
+$--color-black: #000000 !default;
 
 $--color-primary: #36c6d3 !default;
 $--color-primary-light-1: mix(
@@ -118,7 +118,7 @@ $--fill-base: $--color-white !default;
 
 /* Font
 -------------------------- */
-$--font-path: "~element-ui/lib/theme-chalk/fonts" !default;
+$--font-path: "element-ui/lib/theme-chalk/fonts" !default;
 $--font-size-base: 14px !default;
 $--font-size-small: 13px !default;
 $--font-size-large: 18px !default;
@@ -505,7 +505,7 @@ $--switch-button-size: 16px !default;
 
 /* Dialog
 -------------------------- */
-$--dialog-background-color: $--color-primary-light-4 !default;
+$--dialog-background-color: $--color-white !default;
 $--dialog-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !default;
 $--dialog-close-hover-color: $--color-primary !default;
 $--dialog-title-font-size: $--font-size-large !default;

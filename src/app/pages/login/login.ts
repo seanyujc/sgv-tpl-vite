@@ -13,7 +13,8 @@ interface ILoginPage {}
   components: {},
   name: "login",
 })
-export default class LoginPage extends mixins(ComBaseComp)
+export default class LoginPage
+  extends mixins(ComBaseComp)
   implements ILoginPage {
   @Autowired
   commonService!: CommonService;
@@ -43,7 +44,7 @@ export default class LoginPage extends mixins(ComBaseComp)
       if (valid) {
         const data = await this.commonService.login(
           this.form.userName,
-          this.form.password,
+          this.form.password
         );
         this.$store.commit(SET_ACCOUNT_INFO, data);
         this.$router.replace("/");
@@ -62,14 +63,15 @@ export default class LoginPage extends mixins(ComBaseComp)
   fetchData() {
     //
   }
-  /* 生命钩子 START */
+  /* Lifecycle Hooks */
   created() {
     Common.addClass(document.querySelector("html"), "login-page");
   }
   mounted() {
-    //    
+    //
   }
   destroyed() {
     Common.removeClass(document.querySelector("html"), "login-page");
   }
+  /* Lifecycle Hooks END*/
 }

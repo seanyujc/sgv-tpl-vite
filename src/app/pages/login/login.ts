@@ -1,24 +1,17 @@
 import { ElForm } from "element-ui/types/form";
-import Vue from "vue";
 import Component, { mixins } from "vue-class-component";
-import { Autowired } from "../../../lib/sg-resource/src/decorator";
+import { createSingletonObject } from "../../../lib/sg-resource/src/decorator";
 import { ComBaseComp } from "../../core/ComBaseComp";
 import Common from "../../core/common";
 import { CommonService } from "../../core/services/common.serv";
 import { SET_ACCOUNT_INFO } from "../../core/store/mutationTypes";
 
-interface ILoginPage {}
-
 @Component({
   components: {},
   name: "login",
 })
-export default class LoginPage
-  extends mixins(ComBaseComp)
-  implements ILoginPage {
-  @Autowired
-  commonService!: CommonService;
-
+export default class LoginPage extends mixins(ComBaseComp) {
+  commonService = createSingletonObject<CommonService>(CommonService);
   form: any = {};
   rules: any = {
     password: [{ required: true, message: "请输入您的密码", trigger: "blur" }],

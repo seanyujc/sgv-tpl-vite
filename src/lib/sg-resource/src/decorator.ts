@@ -1,7 +1,13 @@
 import "reflect-metadata";
+
 export const singletonObjects: any[] = [];
 
-export function createSingletonObject<T = any>(Type: any, ...args: any): T {
+/**
+ * create singleton Object
+ * @param Type Object Type
+ * @param args Parameters of the constructor
+ */
+export function createSingletonObject<T = any>(Type: T | any, ...args: any): T {
   let n: any = null;
 
   if (Type) {
@@ -16,8 +22,10 @@ export function createSingletonObject<T = any>(Type: any, ...args: any): T {
       n = new Type(...args);
       singletonObjects.push(n);
     }
+    return n;
+  } else {
+    return Type;
   }
-  return n;
 }
 
 export function Autowired(target: any, key: string) {

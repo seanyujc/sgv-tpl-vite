@@ -1,6 +1,6 @@
 import { ElForm } from "element-ui/types/form";
 import Component, { mixins } from "vue-class-component";
-import { createSingletonObject } from "../../../lib/sg-resource/src/decorator";
+import { createSingletonObject } from "sg-resource/src/decorator";
 import { ComBaseComp } from "../../core/ComBaseComp";
 import Common from "../../core/common";
 import { CommonService } from "../../core/services/common.serv";

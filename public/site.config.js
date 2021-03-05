@@ -1,53 +1,71 @@
 (function () {
   var SITE_CONFIG = {
     DEV: {
-      remotes: {
-        user: "//192.168.31.234:3003/user-api",
-        support: "//192.168.31.234:3003/support-api",
+      remote: {
+        hosts: {
+          user: { url: "//10.0.0.1:8080/user-api", cors: true },
+          support: "https://10.0.0.1:8080/support-api",
+        },
+        protocol: "http:",
       },
-      protocol: "http:",
-      hostname: "localhost",
-      port: 7080,
-      publicPath: "/",
-      assetsPath: "/",
-      sensor: "https://apisink.shence.com:8106/sa?project=default",
+      local: {
+        hostname: "127.0.0.1",
+        port: 7080,
+        publicPath: "/",
+        assetsPath: "/",
+      },
     },
     TEST: {
-      remotes: {
-        user: "//test.qq.com:8080/user-api",
+      remote: {
+        hosts: {
+          user: "//10.0.0.1:8080/user-api",
+          support: "https://10.0.0.1:8080/support-api",
+        },
+        protocol: "http:",
       },
-      protocol: "http:",
-      hostname: "127.0.0.1",
-      port: 7080,
-      publicPath: "/",
-      assetsPath: "/",
-      sensor: "https://apisink.shence.com:8106/sa?project=default",
+      local: {
+        hostname: "127.0.0.1",
+        port: 7080,
+        publicPath: "/",
+        assetsPath: "/",
+      },
     },
     UAT: {
-      remotes: {
-        user: "//test.qq.com:8080/user-api",
+      remote: {
+        hosts: {
+          user: "//10.0.0.1:8080/user-api",
+          support: "https://10.0.0.1:8080/support-api",
+        },
+        protocol: "http:",
       },
-      protocol: "http:",
-      hostname: "127.0.0.1",
-      port: 7080,
-      publicPath: "/",
-      assetsPath: "/",
-      sensor: "https://apisink.shence.com:8106/sa?project=default",
+      local: {
+        hostname: "127.0.0.1",
+        port: 7080,
+        publicPath: "/",
+        assetsPath: "/",
+      },
     },
     PROD: {
-      remotes: {
-        user: "//test.qq.com:8080/user-api",
+      remote: {
+        hosts: {
+          user: "//10.0.0.1:8080/user-api",
+          support: "//10.0.0.1:8080/support-api",
+        },
+        protocol: "https:",
       },
-      protocol: "https:",
-      hostname: "127.0.0.1",
-      port: 7080,
-      publicPath: "/",
-      assetsPath: "/",
-      sensor: "https://apisink.shence.com:8106/sa?project=trial_lab",
+      local: {
+        hostname: "127.0.0.1",
+        port: 7080,
+        publicPath: "/",
+        assetsPath: "/",
+      },
     },
     runtimes: "DEV",
   };
   if (typeof window === "object") {
     window.getSiteConfig = () => SITE_CONFIG;
+  }
+  if (typeof global == "object") {
+    global.getSiteConfig = () => SITE_CONFIG;
   }
 })();

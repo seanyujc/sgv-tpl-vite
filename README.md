@@ -1,3 +1,3 @@
 # sgv-tpl-vite
 
-node 12
+node 16

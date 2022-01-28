@@ -1,16 +1,20 @@
-import { ElForm } from "element-ui/types/form";
-import Component, { mixins } from "vue-class-component";
-import { createSingletonObject } from "sg-resource/src/decorator";
-import { ComBaseComp } from "../../core/ComBaseComp";
-import Common from "../../core/common";
-import { CommonService } from "../../core/services/common.serv";
-import { SET_ACCOUNT_INFO } from "../../core/store/mutationTypes";
+import { defineComponent, getCurrentInstance } from "vue";
+import { useBasePage } from "@/app/pages/base-page";
+import { createSingletonObject } from "sg-resource";
 
-@Component({
+export default defineComponent({
+  name: "LoginPage",
   components: {},
-  name: "login",
-})
-export default class LoginPage extends mixins(ComBaseComp) {
+  setup() {
+    useBasePage(getCurrentInstance());
+    return {};
+  },
+  mounted() {
+    // todo
+  },
+});
+
+export  class LoginPage extends mixins(ComBaseComp) {
   commonService = createSingletonObject<CommonService>(CommonService);
   form: any = {};
   rules: any = {

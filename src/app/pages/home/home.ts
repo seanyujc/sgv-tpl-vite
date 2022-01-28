@@ -1,29 +1,14 @@
-import { mixins } from "vue-class-component";
-import BasePage from "@/app/pages/BasePage";
-import {
-  Component,
-  Emit,
-  Inject,
-  Model,
-  Prop,
-  Provide,
-  Vue,
-  Watch,
-} from "vue-property-decorator";
+import { defineComponent, getCurrentInstance } from "vue";
+import { useBasePage } from "@/app/pages/base-page";
 
-@Component({
+export default defineComponent({
+  name: "HomePage",
   components: {},
-  name: "home",
-})
-export default class HomePage extends mixins(BasePage) {
-  title: string = "Home";
-
-  fetchData() {
-    // todo
-  }
-  /* Lifecycle Hooks */
+  setup() {
+    useBasePage(getCurrentInstance());
+    return {};
+  },
   mounted() {
-    //
-  }
-  /* Lifecycle Hooks END */
-}
+    // todo
+  },
+});

@@ -13,7 +13,6 @@ export const router = createRouter({
       component: PageFactory.homePagePreloading,
       children: [],
     },
-    { path: "*", redirect: "login" },
     {
       path: "/login",
       name: "login",
@@ -23,10 +22,6 @@ export const router = createRouter({
       path: "/login/:return",
       name: "loginReturn",
       component: PageFactory.loginPagePreloading,
-    },
-    {
-      path: "*",
-      redirect: "login",
     },
   ],
   scrollBehavior(to, from, savedPosition) {

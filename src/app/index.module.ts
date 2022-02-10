@@ -1,13 +1,6 @@
-import Vue from "vue";
-import app from "./app.vue";
-import router from "./index.router";
-import store from "./core/store";
-import ElementUI from "element-ui";
+import { createApp } from "vue";
+import App from "./App.vue";
+import { router } from "./index.router";
+import ElementPlus from "element-plus";
 
-Vue.use(ElementUI);
-
-const main = new Vue({
-  router,
-  store,
-  render: (h) => h(app),
-}).$mount("#app");
+createApp(App).use(ElementPlus).use(router).mount("#app");

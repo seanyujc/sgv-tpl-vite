@@ -1,14 +1,12 @@
 import { apiConfig } from "../../config/api.conf";
-import { SGResource, ProxyHttp } from "sg-resource";
+import { ensureInitialized } from "sg-resource";
 import { ResultInfo } from "../domain/ResultInfo";
 import { HEADER_TOKEN } from "../constants";
 
 export class BaseService {
-  proxyHttp: ProxyHttp;
-  constructor() {
-    this.proxyHttp = SGResource.ensureInitialized(
+  constructor(
+    public proxyHttp = ensureInitialized<string, any>(
       apiConfig,
-      window.getSiteConfig(),
       {
         headers: () => {
           const headers: any = {};
@@ -25,9 +23,9 @@ export class BaseService {
               config.data = result.data;
             }
           }
-          return config;
+          return Promise.resolve(config);
         },
       }
-    );
-  }
+    )
+  ) {}
 }

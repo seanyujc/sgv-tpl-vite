@@ -3,17 +3,10 @@
     <el-form ref="loginForm" class="login-form" :rules="rules" :model="form">
       <h3>欢迎登录</h3>
       <el-form-item prop="userName">
-        <el-input
-          v-model="form.userName"
-          placeholder="请输入您的用户名/手机/邮箱"
-        ></el-input>
+        <el-input v-model="form.userName" placeholder="请输入您的用户名/手机/邮箱"></el-input>
       </el-form-item>
       <el-form-item prop="password">
-        <el-input
-          type="password"
-          v-model="form.password"
-          placeholder="请输入您的密码"
-        ></el-input>
+        <el-input type="password" v-model="form.password" placeholder="请输入您的密码"></el-input>
       </el-form-item>
       <el-form-item class="long-form-item">
         <el-button type="primary" @click="submitForm()">登录</el-button>
@@ -27,10 +20,12 @@
         </li>
       </ul>
     </el-form>
-    <el-dialog title="注册新账号" :visible.sync="dialogSignupVisible">
-      <div slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="confirmSignup">确定</el-button>
-      </div>
+    <el-dialog title="注册新账号" v-model="dialogSignupVisible">
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button type="primary" @click="confirmSignup">确定</el-button>
+        </div>
+      </template>
     </el-dialog>
   </div>
 </template>
@@ -106,6 +101,9 @@ $color: #333;
     height: 100%;
     background: url(/src/app/styles/images/bg.png) no-repeat;
     background-size: cover;
+    #app{
+      height: 100%;
+    }
   }
 }
 </style>

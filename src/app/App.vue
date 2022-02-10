@@ -2,7 +2,7 @@
   <router-view></router-view>
 </template>
 <script setup lang="ts">
-  const count = "";
+
 </script>
 <style lang="scss" scoped>
 </style>

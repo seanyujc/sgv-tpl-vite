@@ -1,6 +1,6 @@
-import { IApiConfig } from "sg-resource";
+import { ApiConfigInfo } from "sg-resource/dist/es/lib/domain/ApiConfigInfo";
 
-export const apiConfig: IApiConfig<"support" | "user"> = {
+export const apiConfig: ApiConfigInfo<"support" | "user", any> = {
   post: {
     login: { host: "user", path: "/login" },
   },

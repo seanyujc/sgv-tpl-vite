@@ -4,10 +4,11 @@ specifiers:
   '@types/node': ^14.14.31
   '@vitejs/plugin-vue': ^2.1.0
   '@vitejs/plugin-vue-jsx': ^1.3.3
+  '@vue/tsconfig': ^0.1.3
   element-plus: ^2.0.1
   reflect-metadata: ^0.1.13
   sass: ^1.32.8
-  sg-resource: ^2.0.0-beta.0
+  sg-resource: ^2.0.0-beta.1
   typescript: ^4.2.2
   vite: ^2.7.13
   vite-plugin-checker: ^0.4.0
@@ -21,7 +22,7 @@ dependencies:
   '@vitejs/plugin-vue-jsx': 1.3.3
   element-plus: 2.0.1_vue@3.2.29
   reflect-metadata: 0.1.13
-  sg-resource: 2.0.0-beta.0
+  sg-resource: 2.0.0-beta.1
   typescript: 4.5.5
   vite: 2.7.13_sass@1.49.0
   vue: 3.2.29
@@ -30,6 +31,7 @@ dependencies:
 
 devDependencies:
   '@types/node': 14.18.9
+  '@vue/tsconfig': 0.1.3_@types+node@14.18.9
   sass: 1.49.0
   vite-plugin-checker: 0.4.0_vite@2.7.13
   vue-tsc: 0.31.2_typescript@4.5.5
@@ -582,6 +584,17 @@ packages:
 
   /@vue/shared/3.2.29:
     resolution: {integrity: sha512-BjNpU8OK6Z0LVzGUppEk0CMYm/hKDnZfYdjSmPOs0N+TR1cLKJAkDwW8ASZUvaaSLEi6d3hVM7jnWnX+6yWnHw==}
+
+  /@vue/tsconfig/0.1.3_@types+node@14.18.9:
+    resolution: {integrity: sha512-kQVsh8yyWPvHpb8gIc9l/HIDiiVUy1amynLNpCy8p+FoCiZXCo6fQos5/097MmnNZc9AtseDsCrfkhqCrJ8Olg==}
+    peerDependencies:
+      '@types/node': '*'
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+    dependencies:
+      '@types/node': 14.18.9
+    dev: true
 
   /@vueuse/core/7.6.1_vue@3.2.29:
     resolution: {integrity: sha512-492y7R9HRu6TXzcGBMVG5qg5o9CHjrWLfOHh+TEknJeLe3LIYHsIBi1IlUN5s/yP3OHlBynjrzMMUm4gEyBmQg==}
@@ -1575,13 +1588,14 @@ packages:
       lru-cache: 6.0.0
     dev: true
 
-  /sg-resource/2.0.0-beta.0:
-    resolution: {integrity: sha512-6POWK2Rz2Ak1CKmpjf8kMK1Abu2HV5AL8njUxb4hhSXO0qVZv9Mss9C/cRm9uMLAXVGxfNAfdVYDHffpSVtPow==}
+  /sg-resource/2.0.0-beta.1:
+    resolution: {integrity: sha512-KKD+0MZjC+5WTPa5w9NK1aK8AdvumShaTH7tO2z+Wb1dPZh1trdI7bASqPsTL0JF2nKBlNjDMOeIPvJBSCfd4g==}
     dependencies:
       axios: 0.21.4
       md5: 2.3.0
       miniprogram-api-typings: 3.4.5
       reflect-metadata: 0.1.13
+      tslib: 2.3.1
     transitivePeerDependencies:
       - debug
     dev: false
@@ -1649,6 +1663,10 @@ packages:
   /token-stream/1.0.0:
     resolution: {integrity: sha1-zCAOqyYT9BZtJ/+a/HylbUnfbrQ=}
     dev: true
+
+  /tslib/2.3.1:
+    resolution: {integrity: sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==}
+    dev: false
 
   /type-fest/0.21.3:
     resolution: {integrity: sha512-t0rzBq87m3fVcduHDUFhKmyyX+9eo6WQjZvf51Ea/M0Q7+T374Jp1aUiyUl0GKxp8M/OETVHSDvmkyPgvX+X2w==}

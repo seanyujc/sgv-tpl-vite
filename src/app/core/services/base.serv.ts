@@ -5,7 +5,7 @@ import { HEADER_TOKEN } from "../constants";
 
 export class BaseService {
   constructor(
-    public proxyHttp = ensureInitialized<string, any>(
+    protected proxyHttp = ensureInitialized<string, any>(
       apiConfig,
       {
         headers: () => {

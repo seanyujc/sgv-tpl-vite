@@ -7,14 +7,17 @@ import {
   ref,
 } from "vue";
 import { useBasePage } from "@/app/pages/base-page";
+import { createSingletonObject } from "sg-resource";
 
 import Common from "@/app/core/common";
+import { CommonService } from "@/app/core/services/common.serv";
 
 export default defineComponent({
   name: "LoginPage",
   components: {},
   setup() {
     useBasePage(getCurrentInstance());
+    const commonService = createSingletonObject<CommonService>(CommonService)
     const form = reactive<any>({});
     const rules = reactive({
       password: [
@@ -34,7 +37,9 @@ export default defineComponent({
       Common.removeClass(document.querySelector("html"), "login-page");
     });
     function confirmSignup() {}
-    function submitForm() {}
+    function submitForm() {
+      commonService.login("XIAOMING", "xxxxx")
+    }
     function signup() {}
     return {
       form,

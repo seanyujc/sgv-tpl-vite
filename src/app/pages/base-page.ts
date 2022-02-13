@@ -3,7 +3,6 @@ import {
   onMounted,
   onBeforeUnmount,
   onUnmounted,
-  Ref,
   ComponentInternalInstance,
 } from "vue";
 import { onBeforeRouteLeave } from "vue-router";

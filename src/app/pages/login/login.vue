@@ -3,10 +3,17 @@
     <el-form ref="loginForm" class="login-form" :rules="rules" :model="form">
       <h3>欢迎登录</h3>
       <el-form-item prop="userName">
-        <el-input v-model="form.userName" placeholder="请输入您的用户名/手机/邮箱"></el-input>
+        <el-input
+          v-model="form.userName"
+          placeholder="请输入您的用户名/手机/邮箱"
+        ></el-input>
       </el-form-item>
       <el-form-item prop="password">
-        <el-input type="password" v-model="form.password" placeholder="请输入您的密码"></el-input>
+        <el-input
+          type="password"
+          v-model="form.password"
+          placeholder="请输入您的密码"
+        ></el-input>
       </el-form-item>
       <el-form-item class="long-form-item">
         <el-button type="primary" @click="submitForm()">登录</el-button>
@@ -29,79 +36,54 @@
     </el-dialog>
   </div>
 </template>
-<script lang="ts" src="./login.ts">
-</script>
-<style lang="scss" scoped>
-$color: #333;
+<script setup lang="ts">
+import {
+  defineComponent,
+  getCurrentInstance,
+  onMounted,
+  onUnmounted,
+  reactive,
+  ref,
+} from "vue";
+import { useBasePage } from "@/app/pages/base-page";
+import { createSingletonObject } from "sg-resource";
 
-.page-module {
-  position: relative;
-  height: 100%;
+import Common from "@/app/core/common";
+import { user } from "@/app/core/services/user";
+
+useBasePage(getCurrentInstance());
+const form = reactive<any>({});
+const rules = reactive({
+  password: [{ required: true, message: "请输入您的密码", trigger: "blur" }],
+  userName: [
+    {
+      message: "请输入您的用户名/手机/邮箱",
+      required: true,
+      trigger: "blur",
+    },
+  ],
+});
+const dialogSignupVisible = ref(false);
+Common.addClass(document.querySelector("html"), "login-page");
+onUnmounted(() => {
+  Common.removeClass(document.querySelector("html"), "login-page");
+});
+function confirmSignup() {}
+function submitForm() {
+  user.login("XIAOMING", "xxxxx");
 }
-.login-form {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 400px;
-  transform: translate(-50%, -50%);
-  padding: 20px 30px;
-  background: #fff;
-  border: 1px solid #e7ecf1;
-  border-radius: 3px;
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
-  h3 {
-    font-size: 30px;
-    text-align: center;
-  }
-}
-.forgot-sigup {
-  float: right;
-  li {
-    float: left;
-  }
-}
-// 注册
-.el-dialog__wrapper ::v-deep(.el-dialog__header) {
-  text-align: center;
-}
-.el-radio {
-  display: block;
-  height: 30px;
-  line-height: 30px;
-  background: #e7ecf1;
-  text-align: center;
-  &.is-checked {
-    background: #009dc7;
-  }
-}
-.el-radio + .el-radio {
-  margin-left: 0px;
-  margin: 10px 0;
-}
-.el-radio ::v-deep(.el-radio__input) {
-  display: none;
-}
-.el-radio.is-checked ::v-deep(.el-radio__label) {
-  color: #fff;
-}
-.full-card {
-  flex: 1;
-}
-.el-card ::v-deep(.el-card__header) {
-  text-align: center;
-}
-.dialog-footer {
-  text-align: center;
-}
+function signup() {}
+</script>
+<style lang="scss" scoped src="./login.scss">
 </style>
 <style lang="scss">
 .login-page {
   height: 100%;
   body {
     height: 100%;
-    background: url(/src/app/styles/images/bg.png) no-repeat;
+    background: url(/images/bg.png) no-repeat;
     background-size: cover;
-    #app{
+    #app {
       height: 100%;
     }
   }

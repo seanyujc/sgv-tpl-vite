@@ -1,0 +1,61 @@
+$color: #333;
+
+.page-module {
+  position: relative;
+  height: 100%;
+}
+.login-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  transform: translate(-50%, -50%);
+  padding: 20px 30px;
+  background: #fff;
+  border: 1px solid #e7ecf1;
+  border-radius: 3px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  h3 {
+    font-size: 30px;
+    text-align: center;
+  }
+}
+.forgot-sigup {
+  float: right;
+  li {
+    float: left;
+  }
+}
+// 注册
+.el-dialog__wrapper ::v-deep(.el-dialog__header) {
+  text-align: center;
+}
+.el-radio {
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  background: #e7ecf1;
+  text-align: center;
+  &.is-checked {
+    background: #009dc7;
+  }
+}
+.el-radio + .el-radio {
+  margin-left: 0px;
+  margin: 10px 0;
+}
+.el-radio ::v-deep(.el-radio__input) {
+  display: none;
+}
+.el-radio.is-checked ::v-deep(.el-radio__label) {
+  color: #fff;
+}
+.full-card {
+  flex: 1;
+}
+.el-card ::v-deep(.el-card__header) {
+  text-align: center;
+}
+.dialog-footer {
+  text-align: center;
+}

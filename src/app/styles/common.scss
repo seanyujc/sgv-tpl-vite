@@ -1,5 +1,5 @@
-@import "element.scss";
-@import "./iconfont/iconfont.css";
+
+@import "./iconfont.scss";
 * {
   box-sizing: border-box;
 }
@@ -130,7 +130,7 @@ body {
 }
 
 a {
-  color: $--color-primary;
+  color: var(--el-color-primary);
   text-decoration: none;
 }
 

@@ -1,2 +1,2 @@
-import Top from "./top.vue";
-export { Top };
+import MyTop from "./top.vue";
+export { MyTop };

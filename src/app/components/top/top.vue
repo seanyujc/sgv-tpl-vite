@@ -1,8 +1,6 @@
-
-
 <template>
   <div class="component-top">
-    {{ title }}
+    <slot></slot>
   </div>
 </template>
 

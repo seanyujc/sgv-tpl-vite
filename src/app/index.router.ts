@@ -9,6 +9,7 @@ export const router = createRouter({
   routes: [
     {
       path: "/home",
+      alias: "/",
       name: "home",
       component: PageFactory.homePagePreloading,
       children: [],

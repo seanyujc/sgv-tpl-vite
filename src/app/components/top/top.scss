@@ -1,2 +1,12 @@
 .component-top {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  border: 1px solid #666;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  cursor: pointer;
 }

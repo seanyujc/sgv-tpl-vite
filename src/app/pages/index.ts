@@ -5,5 +5,6 @@ export { homePagePreloading, loginPagePreloading };
  * Catching Errors
  */
 export function dealOccurred(error: any, pageName = "") {
-  location.href = (window as any).__SWNextFullPath;
+  console.error(error);
+  // location.href = (window as any).__SWNextFullPath;
 }

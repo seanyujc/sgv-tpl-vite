@@ -1,6 +1,6 @@
 <template>
   <div class="page-module">
-    <el-form ref="loginForm" class="login-form" :rules="rules" :model="form">
+    <el-form ref="loginFormRef" class="login-form" :rules="rules" :model="form">
       <h3>欢迎登录</h3>
       <el-form-item prop="userName">
         <el-input
@@ -16,7 +16,9 @@
         ></el-input>
       </el-form-item>
       <el-form-item class="long-form-item">
-        <el-button type="primary" @click="submitForm()">登录</el-button>
+        <el-button type="primary" @click="submitForm(loginFormRef)"
+          >登录</el-button
+        >
       </el-form-item>
       <ul class="forgot-sigup">
         <li>
@@ -48,10 +50,14 @@ import {
 import { useBasePage } from "@/app/pages/base-page";
 import { createSingletonObject } from "sg-resource";
 
-import Common from "@/app/core/common";
+import Common, { messageError } from "@/app/core/common";
 import { user } from "@/app/core/services/user";
+import { setUserInfo } from "@/app/core/store";
+import type { ElForm } from "element-plus";
 
 useBasePage(getCurrentInstance());
+type FormInstance = InstanceType<typeof ElForm>;
+const loginFormRef = ref<FormInstance>();
 const form = reactive<any>({});
 const rules = reactive({
   password: [{ required: true, message: "请输入您的密码", trigger: "blur" }],
@@ -68,11 +74,25 @@ Common.addClass(document.querySelector("html"), "login-page");
 onUnmounted(() => {
   Common.removeClass(document.querySelector("html"), "login-page");
 });
-function confirmSignup() {}
-function submitForm() {
-  user.login("XIAOMING", "xxxxx");
+function confirmSignup() {
+  dialogSignupVisible.value = false;
 }
-function signup() {}
+async function submitForm(formEl: FormInstance | undefined) {
+  if (!formEl) return;
+  try {
+    if (await formEl.validate()) {
+      const res = await user.login("XIAOMING", "xxxxx");
+      setUserInfo(res);
+    }
+  } catch (error) {
+    console.log("error====", error);
+
+    messageError(error);
+  }
+}
+function signup() {
+  dialogSignupVisible.value = true;
+}
 </script>
 <style lang="scss" scoped src="./login.scss">
 </style>

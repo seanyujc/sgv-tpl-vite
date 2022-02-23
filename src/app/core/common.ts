@@ -1,3 +1,29 @@
+import { ElMessage } from "element-plus";
+
+export function messageError(
+  error: any,
+  {
+    type: type = "error",
+  }: { type?: "success" | "warning" | "info" | "error" } = {}
+) {
+  if (error) {
+    let message = "";
+    if (typeof error.subMessage !== "undefined") {
+      message = error.subMessage || error.errorMessage;
+    } else if (typeof error === "string") {
+      message = error;
+    } else if (error instanceof Error) {
+      message = error.message;
+    }
+    if (message) {
+      ElMessage({
+        type,
+        message,
+      });
+    }
+  }
+}
+
 export default class Common {
   /**
    * 是否有样式名

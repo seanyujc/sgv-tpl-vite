@@ -1,6 +1,7 @@
+import type { UserInfo } from "../domain/UserInfo";
 import { post } from "../resource";
 
-function login(userName: string, password: string): Promise<any> {
+function login(userName: string, password: string): Promise<UserInfo> {
   return post("login", { userName, password });
 }
 

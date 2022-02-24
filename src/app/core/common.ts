@@ -1,4 +1,5 @@
 import { ElMessage } from "element-plus";
+import "element-plus/theme-chalk/src/message.scss";
 
 export function messageError(
   error: any,
@@ -22,6 +23,10 @@ export function messageError(
       });
     }
   }
+}
+
+export function useCommon() {
+  return { messageError };
 }
 
 export default class Common {

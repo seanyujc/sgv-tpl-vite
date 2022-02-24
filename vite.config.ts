@@ -14,7 +14,18 @@ export default defineConfig({
       "~/": `${path.resolve(__dirname, "src")}/`,
     },
   },
-  plugins: [vuePlugin(), vueJsx(), checker({ typescript: true }),AutoImport({
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use "~/app/styles/element.scss" as *;`,
+      },
+    },
+  },
+  plugins: [
+    vuePlugin(),
+    vueJsx(),
+    checker({ typescript: true }),
+    AutoImport({
       resolvers: [ElementPlusResolver()],
     }),
     Components({
@@ -34,7 +45,8 @@ export default defineConfig({
           }
         },
       ],
-    }),],
+    }),
+  ],
   build: {
     minify: true,
   },

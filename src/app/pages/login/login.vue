@@ -1,5 +1,5 @@
 <template>
-  <div class="page-module">
+  <div class="page-login">
     <el-form ref="loginFormRef" class="login-form" :rules="rules" :model="form">
       <h3>欢迎登录</h3>
       <el-form-item prop="userName">
@@ -48,9 +48,7 @@ import {
   ref,
 } from "vue";
 import { useBasePage } from "@/app/pages/base-page";
-import { createSingletonObject } from "sg-resource";
-
-import Common, { messageError } from "@/app/core/common";
+import Common from "@/app/core/common";
 import { user } from "@/app/core/services/user";
 import { setUserInfo } from "@/app/core/store";
 import type { ElForm } from "element-plus";
@@ -70,24 +68,15 @@ const rules = reactive({
   ],
 });
 const dialogSignupVisible = ref(false);
-Common.addClass(document.querySelector("html"), "login-page");
-onUnmounted(() => {
-  Common.removeClass(document.querySelector("html"), "login-page");
-});
+
 function confirmSignup() {
   dialogSignupVisible.value = false;
 }
 async function submitForm(formEl: FormInstance | undefined) {
   if (!formEl) return;
-  try {
-    if (await formEl.validate()) {
-      const res = await user.login("XIAOMING", "xxxxx");
-      setUserInfo(res);
-    }
-  } catch (error) {
-    console.log("error====", error);
-
-    messageError(error);
+  if (await formEl.validate()) {
+    const res = await user.login("XIAOMING", "xxxxx");
+    setUserInfo(res);
   }
 }
 function signup() {
@@ -96,16 +85,4 @@ function signup() {
 </script>
 <style lang="scss" scoped src="./login.scss">
 </style>
-<style lang="scss">
-.login-page {
-  height: 100%;
-  body {
-    height: 100%;
-    background: url(/images/bg.png) no-repeat;
-    background-size: cover;
-    #app {
-      height: 100%;
-    }
-  }
-}
-</style>
+

@@ -1,4 +1,3 @@
-
 @import "./iconfont.scss";
 * {
   box-sizing: border-box;
@@ -11,6 +10,12 @@ body {
   font: 400 14px/1.5 Tahoma, "Lucida Grande", Verdana, "Microsoft Yahei",
     "PingFang-SC", STXihei, hei;
   background: #ececec;
+}
+
+html,
+body,
+#app {
+  height: 100%;
 }
 
 .m-top-5 {

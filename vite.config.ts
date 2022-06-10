@@ -26,6 +26,7 @@ export default defineConfig({
     vueJsx(),
     checker({ typescript: true }),
     AutoImport({
+      imports: ["vue", "vue-router"], dts: "./auto-imports.d.ts",
       resolvers: [ElementPlusResolver()],
     }),
     Components({

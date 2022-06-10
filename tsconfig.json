@@ -11,7 +11,8 @@
     "types": [
       "sg-resource/typings",
       "element-plus/global",
-      "vite/client"
+      "vite/client",
+      "./auto-imports"
     ] /* Type declaration files to be included in compilation. */
   }
 }

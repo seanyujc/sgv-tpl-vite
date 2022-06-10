@@ -39,14 +39,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import {
-  defineComponent,
-  getCurrentInstance,
-  onMounted,
-  onUnmounted,
-  reactive,
-  ref,
-} from "vue";
 import { useBasePage } from "@/app/pages/base-page";
 import Common from "@/app/core/common";
 import { user } from "@/app/core/services/user";

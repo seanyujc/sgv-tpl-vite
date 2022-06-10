@@ -5,7 +5,6 @@
   </div>
 </template>
 <script setup lang="ts" >
-import { getCurrentInstance } from "vue";
 import { useBasePage } from "@/app/pages/base-page";
 useBasePage(getCurrentInstance());
 </script>

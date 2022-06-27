@@ -1,7 +1,10 @@
 # sgv-tpl-vite
 
+## Requirement
 node 16
 
+## Start
 ```js
-pnpm install
+npm install
+npm run dev
 ```

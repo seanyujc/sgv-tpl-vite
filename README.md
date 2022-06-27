@@ -1,7 +1,7 @@
 # sgv-tpl-vite
 
 ## Requirement
-node 16
+nodejs 16
 
 ## Start
 ```js
